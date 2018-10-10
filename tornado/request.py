@@ -34,7 +34,7 @@ def validate():
 
 def update():
 
-    conn = http.client.HTTPConnection("192.168.100.109:8885")
+    conn = http.client.HTTPConnection("134.119.178.199:8885")
     
     HashKey = "beebeejump2018getrich"
     
