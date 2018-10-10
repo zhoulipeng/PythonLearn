@@ -1,12 +1,16 @@
-from gevent import monkey; monkey.patch_all()
+from gevent import monkey
 from gevent.pywsgi import *
+
+monkey.patch_all()
+
 
 def app(env, start_response):
     start_response('200 OK', [('Content-Type', 'text/html')])
     return ['<html><head><title>AB Test</title></head><body><h1>Hello</h1></body></html>']
 
+
 print('Start gevent 9999...')
-WSGIServer(('', 9999), app).serve_forever()
+WSGIServer(('localhost', 9999), app).serve_forever()
 """
 $ ab -n 10000 -c 1000 -k http://localhost:9999/
 ...
